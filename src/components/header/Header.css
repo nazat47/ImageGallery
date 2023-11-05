@@ -1,0 +1,75 @@
+.header{
+    font-size: 20px;
+    padding: 10px;
+    height: 40px;
+    position: relative;
+    border-bottom: 1px solid rgb(180, 180, 180);
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+.header h4{
+    padding-left: 30px;
+}
+.header input{
+    position: absolute;
+    padding-top: 60px;
+    padding-left: 30px;
+    height: 20px;
+    width: 20px;
+}
+.header p{
+    padding-left: 30px;
+}
+.btn_delete{
+    background-color: white;
+    border: none;
+    color: rgb(154, 4, 4);
+    font-size: large;
+    padding-right: 40px;
+}
+.btn_delete:hover{
+    text-decoration: underline;
+}
+  @media screen and (max-width:800px){
+    .header{
+        font-size: 15px;
+        padding: 7px;
+        height: 30px;
+    }
+    .header h4, .header p{
+        padding-left: 20px;
+    }
+    .header input{
+        padding-top: 40px;
+        padding-left: 20px;
+        height: 15px;
+        width: 15px;
+    }
+    .btn_delete{
+        font-size: medium;
+        padding-right: 25px;
+    }
+  }
+  @media screen and (max-width:550px){
+    .header{
+        font-size: 10px;
+        padding: 4px;
+        height: 20px;
+    }
+    .header h4, .header p{
+        padding-left: 15px;
+    }
+    .header input{
+        padding-top: 25px;
+        padding-left: 10px;
+        height: 9px;
+        width: 9px;
+    }
+    .btn_delete{
+        font-size: small;
+        padding-right: 15px;
+    }
+  }
+
