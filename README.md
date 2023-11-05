@@ -1,1 +1,1 @@
-Beautiful and responsive image gallery
+Responsive image gallery
