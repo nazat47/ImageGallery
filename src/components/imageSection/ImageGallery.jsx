@@ -18,18 +18,53 @@ export default function ImageGallery() {
       )
     }
     // Function to handle the change in selection status of an image
-    const handleDrag=(results)=>{
-      if(!results.destination) return
-      const items=Array.from(images)
-      const [reorder]=items.splice(results.source.index,1)
-      items.splice(results.destination.index,0,reorder)
-      setImages(items)
+    // const handleDrag=(results)=>{
+    //   if(!results.destination) return
+    //   const items=Array.from(images)
+    //   const [reorder]=items.splice(results.source.index,1)
+    //   items.splice(results.destination.index,0,reorder)
+    //   setImages(items)
 
-    }
+    // }
+    const onDragUpdate = (update) => {
+      if (!update.destination) {
+        return;
+      }
+    
+      const newImages = reorder(
+        images,
+        update.source.index,
+        update.destination.index
+      );
+    
+      // Update the state without waiting for the drag to end
+      setImages(newImages);
+    };
+    // const onDragEnd = (result) => {
+    //   if (!result.destination) {
+    //     return;
+    //   }
+    
+    //   if (result.source.index !== result.destination.index) {
+    //     const newImages = reorder(
+    //       images,
+    //       result.source.index,
+    //       result.destination.index
+    //     );
+    //     setImages(newImages);
+    //   }
+    // };
+    
+    const reorder = (list, startIndex, endIndex) => {
+      const result = Array.from(list);
+      const [removed] = result.splice(startIndex, 1);
+      result.splice(endIndex, 0, removed);
+      return result;
+    };
    
   return (
     <div> 
-       <DragDropContext onDragEnd={handleDrag}>
+       <DragDropContext onDragUpdate={onDragUpdate}>
         <Droppable droppableId="images" direction="horizontal">     
          {(provided,snapshot)=>(   
           <div className='container' {...provided.droppableProps} ref={provided.innerRef}> 
